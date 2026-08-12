@@ -1,0 +1,51 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
+import { SiteLayout } from "@/components/site/SiteLayout";
+import { LogoWatermark } from "@/components/site/LogoWatermark";
+
+export const Route = createFileRoute("/cookie-policy")({
+  head: () => ({
+    meta: [
+      { title: "Cookie Policy — TALENTS LAB" },
+      {
+        name: "description",
+        content: "Informativa sui cookie TALENTS LAB, incluso l'uso dei cookie tecnici per il sito e per il futuro carrello Shopify.",
+      },
+    ],
+  }),
+  component: CookiePolicyPage,
+});
+
+function CookiePolicyPage() {
+  const { t } = useTranslation();
+  const sections = t("legal.cookie.sections", { returnObjects: true }) as Array<{ heading: string; paragraphs: string[] }>;
+
+  return (
+    <SiteLayout>
+      <section className="relative py-20 sm:py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-background" />
+        <LogoWatermark />
+        <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <p className="text-xs uppercase tracking-[0.3em] text-primary mb-3">{t("footer.cookiePolicy")}</p>
+            <h1 className="font-display font-bold text-4xl sm:text-6xl uppercase">{t("legal.cookie.pageTitle")}</h1>
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+              {t("legal.cookie.pageDescription")}
+            </p>
+          </div>
+
+          <div className="space-y-10 text-sm text-muted-foreground leading-relaxed">
+            {sections.map((section, sectionIndex) => (
+              <div key={sectionIndex}>
+                <h2 className="font-semibold text-2xl text-foreground mb-4">{section.heading}</h2>
+                {section.paragraphs.map((paragraph, paragraphIndex) => (
+                  <p key={paragraphIndex}>{paragraph}</p>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </SiteLayout>
+  );
+}

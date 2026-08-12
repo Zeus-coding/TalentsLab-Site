@@ -1,0 +1,371 @@
+{
+  "navbar": {
+    "home": "Home",
+    "teams": "Teams",
+    "news": "News",
+    "partner": "Partner",
+    "about": "About",
+    "shop": "Shop",
+    "language": "Language"
+  },
+  "hero": {
+    "season": "Season 2026",
+    "titleLine1": "Start the era",
+    "titleLine2": "of innovation",
+    "description": "TALENTS LAB is a global cutting-edge esports organization ready to revolutionize the competitive landscape through growth and top talent development.",
+    "rosters": "DISCOVER THE ROSTERS",
+    "about": "About us"
+  },
+  "news": {
+    "sectionLabel": "Newsroom",
+    "sectionTitle": "Latest News",
+    "allNews": "All news",
+    "readArticle": "Read the article"
+  },
+  "rosters": {
+    "sectionLabel": "Rosters",
+    "sectionTitle": "Our rosters",
+    "description": "The main Brawl Stars team and the Academy talent pool. Pick a roster and discover who represents TALENTS LAB.",
+    "teamMain": "Main Team",
+    "academy": "The Academy",
+    "viewRoster": "View the roster"
+  },
+  "partnership": {
+    "sectionLabel": "Partnership",
+    "sectionTitle": "Grow with us",
+    "description": "TALENTS LAB represents the future of esports. If you are a brand that believes in competition, passion and innovation, we want to meet you.",
+    "cta": "Explore partnership opportunities"
+  },
+  "aboutPage": {
+    "heroLabel": "About Us",
+    "title": "Who We Are",
+    "missionTitle": "Our Mission",
+    "missionText": "To prove that top-tier talent can compete and win at a global level in competitive gaming. We are not here to participate. We are here to dominate, write history, and change the perception of competitive gaming on the international stage.",
+    "visionTitle": "Our Vision",
+    "visionText": "TALENTS LAB is more than a team. It is a brand, a community, a movement. We want to create a space where talent comes together, trains, competes, and wins. A platform where players become champions, creators build global audiences, and fans experience the thrill of competitive gaming at the highest level.",
+    "valuesTitle": "Our Values",
+    "values": [
+      { "title": "Excellence", "description": "We accept no compromises. Every detail, every decision, every action reflects our commitment to absolute excellence." },
+      { "title": "Dedication", "description": "Our players train like the best athletes in the world. Total dedication to competition." },
+      { "title": "Community", "description": "We are never alone. Our strength comes from the community. Whether players, fans, or partners, we are a family." },
+      { "title": "Innovation", "description": "We constantly seek new training methods, new strategies, and new ways to tell the gaming story." },
+      { "title": "Transparency", "description": "We communicate honestly with our fans, partners, and community. No empty hype, only facts." },
+      { "title": "Ambition", "description": "We dream big. From a local team to a global force in the international scene." }
+    ],
+    "storyTitle": "Our",
+    "storyTitleAccent": "Story",
+    "storyParagraphs": [
+      "TALENTS LAB was born from the awareness that competitive gaming needed a new point of reference. Not just another team, but an organization that combines talent, ambition, and professionalism at the level of the best European teams.",
+      "In the 2026 season, we recruited some of the best Brawl Stars players. Not to participate in tournaments, but to win them.",
+      "But TALENTS LAB is also growth. It is our Academy, where we select and train the talents of the future. It is our creator and streamer community that tells the story of competitive gaming to the world. It is our vision of a competitive, united, and self-aware scene.",
+      "The site you are visiting is not just a showcase. It is the heart of our movement. Here we tell our story day by day, share our progress, celebrate our successes, and remain vulnerable about our failures."
+    ],
+    "futureTitle": "Our",
+    "futureTitleAccent": "Future",
+    "futureItems": [
+      "Dominate the national Brawl Stars circuit",
+      "Secure a place in the European finals",
+      "Bring TALENTS LAB to the World Championship",
+      "Develop an Academy with dozens of talents in training",
+      "Build a community of 100k+ passionate fans",
+      "Attract the best international brands as partners",
+      "Become the reference point for competitive gaming"
+    ],
+    "closingTitle": "This is the story of TALENTS LAB. But it is only the beginning.",
+    "closingText": "If you share our passion, ambition, and vision, you are part of TALENTS LAB. Welcome to the new era of competitive gaming."
+  },
+  "newsPage": {
+    "heroLabel": "Newsroom",
+    "heroTitle": "News &",
+    "heroTitleAccent": "Announcements",
+    "heroDescription": "Follow the latest updates from TALENTS LAB. Roster, matches, events, and much more.",
+    "categoryPrefix": "Category:",
+    "close": "Close",
+    "readMore": "Read the article",
+    "articles": [
+      {
+        "tag": "COMMUNICATION",
+        "title": "Welcome to the future of TALENTS LAB: the new official website is live!",
+        "date": "August 12, 2026",
+        "category": "Communication",
+        "excerpt": "Today marks the beginning of a new chapter: the official launch of the global TALENTS LAB Esports web platform. Not simply a competitive club, but a cutting-edge vision born to redefine the boundaries of international gaming.",
+        "content": "Today marks the beginning of a new chapter: the official launch of the global TALENTS LAB Esports web platform. We are not simply a competitive club; we are a cutting-edge vision born to redefine the boundaries of international gaming through excellence, strategic innovation, and the scouting of the best global talents. This portal represents our manifesto and the meeting point between the passion of the community and the highest competitive standards in the industry. It will be the main space where we tell our story, share the milestones of our rosters, and build the future of competitive entertainment together with our partners. Our Mission: Recognize pure, raw talent, shape it through a micro-structured growth path, and lead it to dominate the stages of the world circuits. Our Community: We are not looking for simple spectators. We want to unite fans, dreamers, and players who believe in change and in the winning mentality. Welcome to TALENTS LAB. The future starts now."
+      },
+      {
+        "tag": "COMPETITIVE",
+        "title": "European podium! TALENTS LAB takes third place at the August Monthly Finals",
+        "date": "August 10, 2026",
+        "category": "Competitive",
+        "excerpt": "TALENTS LAB is officially on the European podium: a legendary third place at the August Monthly Finals EMEA, with an emergency line-up and a run stopped only in the semi-final by FUT Esports.",
+        "content": "TALENTS LAB is officially on the podium of Europe. The boys delivered an extraordinary performance at the August Monthly Finals EMEA, claiming a legendary third place overall. The monthly finals stage put the squad to a severe test, forcing it to face the event with an emergency line-up: alongside Yei Yei and Sanfire, the outstanding stand-in Mewtu stepped onto the stage and slotted into the team's mechanics instantly, with the ease of a top-class player. The quarter-final against Reply Totem was a masterpiece of technique and steady nerves, ending 3-2 in our favour at the end of an extremely tense series. Our run was stopped only in the semi-final against FUT Esports, currently the number one team in Europe and a favourite for the world title. This defeat does not erase a journey worthy of giants: an incredible performance that proved once and for all that the TLB acronym belongs by right on the most important stages in the world. This podium is only the beginning of an immense journey. 2027 will be historic. Dream Bigger!"
+      },
+      {
+        "tag": "COMPETITIVE",
+        "title": "Historic feat at the Monthly Qualifier: TALENTS LAB flies to the Monthly Finals!",
+        "date": "August 2, 2026",
+        "category": "Competitive",
+        "excerpt": "A monumental feat at the European Monthly Qualifier: a reverse sweep against NOVO Esports and a clean 3-1 over Team Heretics seal a historic qualification for the EMEA Monthly Finals.",
+        "content": "A legendary day that will be written in golden letters in the history of TALENTS LAB. Our team, made up of Agachi, Sanfire, and Yei Yei, pulled off a monumental feat during the European Monthly Qualifier, earning a historic qualification for the EMEA Monthly Finals of the official Brawl Stars Championship circuit. The road to this milestone was a genuine nail-biter. The most epic moment of the tournament came during the decisive head-to-head against NOVO Esports: two sets down (0-2) and one step away from elimination, the boys kept an extraordinary mental composure, pulling off a stunning \"reverse sweep\" to a final 3-2 that left every spectator speechless. Without giving themselves a moment's rest, the team went back on stage and defeated the giants of Team Heretics with a clean and hugely elegant 3-1. With this outstanding display, TALENTS LAB proves it is no simple outsider, but that it has everything it takes to sit at the table of the true giants of Europe."
+      },
+      {
+        "tag": "COMPETITIVE",
+        "title": "TALENTS LAB secures the official pass for the Brawl Ball League",
+        "date": "June 29, 2026",
+        "category": "Competitive",
+        "excerpt": "Our team clears the groups with a perfect record and secures the official pass for the Brawl Ball League, one of the most iconic and competitive tournaments on the continental scene.",
+        "content": "The European journey of TALENTS LAB begins with an extraordinary show of strength that immediately makes the international ambitions of the club clear. Yesterday evening, our team made up of Yei Yei, Agachi, and Tomzy brilliantly cleared the qualifying groups, securing the official pass for the prestigious Brawl Ball League, one of the most iconic and competitive tournaments on the continental scene. The team chemistry and strategic aggression the boys showed from the very first matches left their opponents with no answers. Perfect synergy in map control and millimetre-precise timing in managing goals allowed TLB to close the qualifying stage with a perfect record, without conceding a single set. This achievement is the first, fundamental building block of our great competitive project for the 2026 season. The road ahead is still long, but the Talents Lab era has officially begun and we are ready to leave our mark on every field of play."
+      },
+      {
+        "tag": "COMPETITIVE",
+        "title": "TALENTS LAB unveils the official Brawl Stars roster",
+        "date": "June 28, 2026",
+        "category": "Competitive",
+        "excerpt": "It is official. TALENTS LAB announces its entry into the international competitive Brawl Stars circuit with an elite lineup led by three absolute champions: Yei Yei, Tomzy, and Agachi.",
+        "content": "It is official. TALENTS LAB announces its entry into the international competitive Brawl Stars circuit with an elite lineup led by three absolute champions: Yei Yei, Tomzy, and Agachi. This roster combines devastating firepower with unprecedented strategic draft reading, laying the foundations for a season focused solely on the top of the global rankings. The goals for this year are extremely ambitious: dominate the most prestigious international tournaments, conquer the top of European and global qualifications, and establish the brand as the absolute reference point in next-generation competitive gaming. The team is ready to enter the battlefield with determination, constantly supported by the work of the Academy and the club's entire management. Follow our official channels so you do not miss the next matches and all the exclusive behind-the-scenes content!"
+      }
+    ]
+  },
+  "partnerPage": {
+    "heroLabel": "Partnership",
+    "heroTitle": "Write the story",
+    "heroTitleAccent": "together with us",
+    "heroDescription": "TALENTS LAB is more than a team. We are a community, a brand, a vision of competitive gaming. If you share this passion, we want to make history together.",
+    "metrics": [
+      { "value": "10M+", "label": "Views" },
+      { "value": "192k+", "label": "Likes" },
+      { "value": "1M+", "label": "Accounts Reached" }
+    ],
+    "opportunitiesLabel": "Opportunities",
+    "opportunitiesTitle": "Why partner with",
+    "benefits": [
+      { "title": "Guaranteed Visibility", "description": "Brand exposure across all TALENTS LAB channels: social, streams, website, and in-game." },
+      { "title": "Engaged Community", "description": "Access to a community of passionate and loyal gamers, highly responsive to value." },
+      { "title": "Creative Partnership", "description": "Custom collaborations: content, giveaways, targeted campaigns. Maximum flexibility." },
+      { "title": "Data and Analytics", "description": "Detailed reports on impressions, engagement, reach, and ROI of the partnership." }
+    ],
+    "ctaLabel": "Ready to make history?",
+    "ctaTitle": "Become a Partner",
+    "ctaTitleSuffix": "of TALENTS LAB",
+    "ctaDescription": "Contact us today to discuss how we can collaborate and grow together.",
+    "ctaButton": "Send partnership proposal"
+  },
+  "shopPage": {
+    "heroBadge": "Collection 2026 — Coming Soon",
+    "heroTitleAccent": "Merch",
+    "heroDescription": "The official TALENTS LAB merchandise is on its way. Wear the colors of the new era of Italian gaming. Exclusive, limited edition pieces signed by our champions.",
+    "previewCards": [
+      { "name": "Official Jersey" },
+      { "name": "Finger Sleeves" }
+    ],
+    "previewCardBadge": "Coming Soon",
+    "ctaTitle": "Stay",
+    "ctaTitleAccent": "Updated",
+    "ctaDescription": "Subscribe to our newsletter to receive an exclusive preview of the Collection 2026. Early-bird access for subscribers.",
+    "emailPlaceholder": "your@email.com",
+    "notifyButton": "Notify me",
+    "infoCards": [
+      { "title": "Official Merchandise", "desc": "Official TALENTS LAB product. Premium quality, exclusive design, signed by our champions." },
+      { "title": "Limited Edition", "desc": "Every collection is limited. Once sold out, it is never available again. Be part of those who choose TALENTS LAB." }
+    ]
+  },
+  "teamsPage": {
+    "hero": {
+      "label": "Teams",
+      "titleLine1": "Our",
+      "titleLine2": "Rosters",
+      "description": "Discover the talents who represent TALENTS LAB in the European and global competitive scene."
+    },
+    "mainTeam": {
+      "label": "Main Team",
+      "title": "BRAWL STARS 2026",
+      "playerLabel": "PLAYER",
+      "players": {
+        "yeiyei": { "name": "Yei Yei" },
+        "tomzy": { "name": "Tomzy" },
+        "agachi": { "name": "Agachi" }
+      }
+    },
+    "academyTeam": {
+      "label": "Young Talents",
+      "title": "ACADEMY TEAM",
+      "description": "Our young talents are prepared for the European competitive stage through structured training, regular competitions, and mentorship from pro players.",
+      "players": {
+        "flow": { "name": "Flow" },
+        "spocki": { "name": "Spocki" },
+        "movess": { "name": "Movess" },
+        "moude": { "name": "Moude" }
+      },
+      "roles": {
+        "player": "PLAYER",
+        "drafter": "DRAFTER"
+      }
+    },
+    "recruitment": {
+      "label": "Recruitment",
+      "titleLine1": "Do you want to be part",
+      "titleLine2": "of",
+      "titleStrong": "TALENTS LAB",
+      "description": "Selections for the competitive team and the Academy are always open. If you are serious, dedicated, and ambitious, we want to meet you.",
+      "button": "Send your application",
+      "secondaryButton": "Discover more about us"
+    }
+  },
+  "newsletter": {
+    "loading": "Sending…",
+    "success": "Successfully subscribed!",
+    "already": "You are already subscribed!",
+    "invalidEmail": "Invalid email address.",
+    "notConfigured": "Newsletter is not active yet. Please try again later.",
+    "error": "Something went wrong. Please try again."
+  },
+  "footer": {
+    "description": "The incubator of competitive talent in the esports landscape.",
+    "newsletterLabel": "Newsletter",
+    "newsletterText": "Tournament previews, merchandising drops, behind-the-scenes, and much more.",
+    "placeholder": "your@email.com",
+    "submitAriaLabel": "Subscribe",
+    "followLabel": "Follow",
+    "copyright": "© 2026 TALENTS LAB. All rights reserved.",
+    "credit": "Website created by Paolo Bonsignore",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "terms": "Terms"
+  },
+  "legal": {
+    "privacy": {
+      "pageTitle": "Privacy Policy",
+      "pageDescription": "We protect your data with care. This policy describes how we collect and use newsletter emails and how we will handle shop data in the future.",
+      "sections": [
+        {
+          "heading": "1. Purpose of collection",
+          "paragraphs": [
+            "TALENTS LAB collects the email address you enter in the \"Stay Updated\" box solely to send you communications about merchandise launches, drops, events and project updates."
+          ]
+        },
+        {
+          "heading": "2. Data processed",
+          "paragraphs": [
+            "The personal data processed is your email. We do not collect sensitive information, credit card numbers or banking data through this form."
+          ]
+        },
+        {
+          "heading": "3. Processing methods",
+          "paragraphs": [
+            "Data will be stored securely and used for commercial communication and marketing purposes related to TALENTS LAB. Every message sent will contain a link to unsubscribe."
+          ]
+        },
+        {
+          "heading": "4. Future shop and external partners",
+          "paragraphs": [
+            "When the store goes live, shop data will be handled in accordance with the policies of Shopify and Printful. This means that order, shipping and payment data will be stored and protected by the respective providers under their terms of service.",
+            "At the moment, the site uses email collection for the newsletter only. E-commerce services are not yet operational, but they will be activated following the best security and privacy practices."
+          ]
+        },
+        {
+          "heading": "5. Rights of the data subject",
+          "paragraphs": [
+            "You have the right to access, rectify or delete your information, as well as to request the restriction of processing and to object to direct marketing. Send a request by email to bstalentslab@gmail.com."
+          ]
+        },
+        {
+          "heading": "6. Duration and updates",
+          "paragraphs": [
+            "This policy may be updated at any time. The version published on this page is the one currently in force."
+          ]
+        }
+      ]
+    },
+    "cookie": {
+      "pageTitle": "Cookie Policy",
+      "pageDescription": "We explain which cookies the site uses and why they are necessary for the web experience and for the future integration of the Shopify cart.",
+      "sections": [
+        {
+          "heading": "1. What cookies are",
+          "paragraphs": [
+            "Cookies are small text files stored in the browser when you visit a site. They are used to remember preferences, browsing sessions and technical settings."
+          ]
+        },
+        {
+          "heading": "2. Necessary technical cookies",
+          "paragraphs": [
+            "TALENTS LAB uses technical cookies strictly necessary for the operation of the site, such as session management, navigation between pages and error protection."
+          ]
+        },
+        {
+          "heading": "3. Future Shopify cart",
+          "paragraphs": [
+            "When the store goes live, the site may use additional cookies from the Shopify platform to manage the cart, checkout and purchase personalization.",
+            "These cookies will be used to ensure a safe and continuous experience during online purchases."
+          ]
+        },
+        {
+          "heading": "4. Third-party cookies",
+          "paragraphs": [
+            "At the moment, no profiling or marketing cookies are activated. In the future, any external services will be handled according to the providers' policies and only with your consent when required."
+          ]
+        },
+        {
+          "heading": "5. Management and deactivation",
+          "paragraphs": [
+            "You can manage cookies directly from your browser. Disabling technical cookies may affect the correct functioning of the site."
+          ]
+        },
+        {
+          "heading": "6. Updates",
+          "paragraphs": [
+            "This Cookie Policy may be updated at any time. The version published on this page is the current one."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "pageTitle": "Terms and Conditions",
+      "pageDescription": "Terms of use of the TALENTS LAB site and general conditions governing access to the content and the future e-commerce service.",
+      "sections": [
+        {
+          "heading": "1. Acceptance of terms",
+          "paragraphs": [
+            "By accessing and using the TALENTS LAB site, you fully accept these Terms and Conditions. If you do not agree with these conditions, please do not use the site."
+          ]
+        },
+        {
+          "heading": "2. Use of the site",
+          "paragraphs": [
+            "The TALENTS LAB site serves informational and community purposes: it presents the rosters, news, partnerships and activities of the project. You agree to use the site lawfully and not to compromise its correct functioning."
+          ]
+        },
+        {
+          "heading": "3. Intellectual property",
+          "paragraphs": [
+            "Logos, trademarks, texts, graphics and content on the site are the property of TALENTS LAB or their respective owners. Unauthorized reproduction or use without written consent is prohibited."
+          ]
+        },
+        {
+          "heading": "4. Newsletter and communications",
+          "paragraphs": [
+            "By subscribing to the newsletter, you consent to receive communications about merchandise, drops, events and updates. You can unsubscribe at any time via the link included in every message."
+          ]
+        },
+        {
+          "heading": "5. Future e-commerce",
+          "paragraphs": [
+            "When the store goes live, sales will be managed through Shopify and Printful. The conditions of sale, shipping times and return policies will be governed by the respective providers and communicated at the time of purchase.",
+            "At the moment, e-commerce services are not operational and no order can be placed through the site."
+          ]
+        },
+        {
+          "heading": "6. Limitation of liability",
+          "paragraphs": [
+            "TALENTS LAB is not responsible for any service interruptions, technical errors or content of linked third-party sites. Content is provided \"as is\"."
+          ]
+        },
+        {
+          "heading": "7. Changes to the terms",
+          "paragraphs": [
+            "TALENTS LAB reserves the right to update these Terms and Conditions at any time. The version published on this page is the one currently in force."
+          ]
+        }
+      ]
+    }
+  }
+}
