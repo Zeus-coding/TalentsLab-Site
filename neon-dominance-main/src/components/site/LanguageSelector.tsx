@@ -1,4 +1,7 @@
+import type { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
+
+import { DEFAULT_LANGUAGE } from "@/lib/i18n";
 
 const LANGUAGES = [
   { code: "en", label: "EN" },
@@ -9,14 +12,15 @@ const LANGUAGES = [
 
 export function LanguageSelector() {
   const { i18n, t } = useTranslation();
-  const currentLanguage = (i18n.language ?? "en").split("-")[0];
+  // i18n.language può arrivare come "it-IT": il <select> confronta i codici
+  // brevi, quindi si tiene solo la sottotag di lingua.
+  const currentLanguage = (i18n.language ?? DEFAULT_LANGUAGE).split("-")[0];
 
-  const handleChange = async (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const nextLanguage = event.target.value;
-    await i18n.changeLanguage(nextLanguage);
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem("i18nextLng", nextLanguage);
-    }
+  // La persistenza su localStorage e l'aggiornamento di <html lang> sono
+  // gestiti dal listener "languageChanged" registrato in i18n.ts: qui basta
+  // cambiare lingua.
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    void i18n.changeLanguage(event.target.value);
   };
 
   return (

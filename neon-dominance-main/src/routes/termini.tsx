@@ -9,7 +9,8 @@ export const Route = createFileRoute("/termini")({
       { title: "Termini e Condizioni — TALENTS LAB" },
       {
         name: "description",
-        content: "Termini di utilizzo del sito TALENTS LAB e condizioni generali di vendita per il futuro e-commerce.",
+        content:
+          "Termini di utilizzo del sito TALENTS LAB e condizioni generali di vendita per il futuro e-commerce.",
       },
     ],
   }),
@@ -18,7 +19,10 @@ export const Route = createFileRoute("/termini")({
 
 function TerminiPage() {
   const { t } = useTranslation();
-  const sections = t("legal.terms.sections", { returnObjects: true }) as Array<{ heading: string; paragraphs: string[] }>;
+  const sections = t("legal.terms.sections", { returnObjects: true }) as Array<{
+    heading: string;
+    paragraphs: string[];
+  }>;
 
   return (
     <SiteLayout>
@@ -27,8 +31,12 @@ function TerminiPage() {
         <LogoWatermark />
         <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="text-xs uppercase tracking-[0.3em] text-primary mb-3">{t("footer.terms")}</p>
-            <h1 className="font-display font-bold text-4xl sm:text-6xl uppercase">{t("legal.terms.pageTitle")}</h1>
+            <p className="text-xs uppercase tracking-[0.3em] text-primary mb-3">
+              {t("footer.terms")}
+            </p>
+            <h1 className="font-display font-bold text-4xl sm:text-6xl uppercase">
+              {t("legal.terms.pageTitle")}
+            </h1>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
               {t("legal.terms.pageDescription")}
             </p>

@@ -9,7 +9,8 @@ export const Route = createFileRoute("/privacy-policy")({
       { title: "Privacy Policy — TALENTS LAB" },
       {
         name: "description",
-        content: "Informativa sulla privacy TALENTS LAB, raccolta email newsletter e gestione dati futuri con Shopify e Printful.",
+        content:
+          "Informativa sulla privacy TALENTS LAB, raccolta email newsletter e gestione dati futuri con Shopify e Printful.",
       },
     ],
   }),
@@ -18,7 +19,10 @@ export const Route = createFileRoute("/privacy-policy")({
 
 function PrivacyPolicyPage() {
   const { t } = useTranslation();
-  const sections = t("legal.privacy.sections", { returnObjects: true }) as Array<{ heading: string; paragraphs: string[] }>;
+  const sections = t("legal.privacy.sections", { returnObjects: true }) as Array<{
+    heading: string;
+    paragraphs: string[];
+  }>;
 
   return (
     <SiteLayout>
@@ -27,8 +31,12 @@ function PrivacyPolicyPage() {
         <LogoWatermark />
         <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="text-xs uppercase tracking-[0.3em] text-primary mb-3">{t("footer.privacyPolicy")}</p>
-            <h1 className="font-display font-bold text-4xl sm:text-6xl uppercase">{t("legal.privacy.pageTitle")}</h1>
+            <p className="text-xs uppercase tracking-[0.3em] text-primary mb-3">
+              {t("footer.privacyPolicy")}
+            </p>
+            <h1 className="font-display font-bold text-4xl sm:text-6xl uppercase">
+              {t("legal.privacy.pageTitle")}
+            </h1>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
               {t("legal.privacy.pageDescription")}
             </p>

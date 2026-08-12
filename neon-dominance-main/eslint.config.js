@@ -6,7 +6,10 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["dist", ".output", ".vinxi"] },
+  // Output di build: sono file generati e minificati, non codice sorgente.
+  // Senza `.vercel` e `.nitro` qui, `eslint .` lanciato dopo una build linta
+  // migliaia di .mjs generati e fallisce con errori prettier/prettier.
+  { ignores: ["dist", ".output", ".vinxi", ".vercel", ".nitro", ".tanstack"] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],

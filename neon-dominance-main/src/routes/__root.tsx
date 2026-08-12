@@ -8,10 +8,17 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { I18nextProvider } from "react-i18next";
 
-import "../lib/i18n";
 import appCss from "../styles.css?url";
+import { initI18n, syncLanguageWithBrowser } from "../lib/i18n";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+
+// Istanza creata a livello di modulo e passata a <I18nextProvider>. Il
+// riferimento esplicito è ciò che la tiene dentro il bundle: con un semplice
+// `import "../lib/i18n"` il tree-shaking la eliminava in produzione e ogni
+// t() ricadeva sulla chiave grezza.
+const i18n = initI18n();
 
 function NotFoundComponent() {
   return (
@@ -79,10 +86,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "TALENTS LAB — L'Incubatore di Talenti Esports" },
-      { name: "description", content: "TALENTS LAB — L'incubatore di talenti competitivi del panorama e-sport italiano." },
+      {
+        name: "description",
+        content: "TALENTS LAB — L'incubatore di talenti competitivi del panorama e-sport italiano.",
+      },
       { name: "author", content: "TALENTS LAB" },
       { property: "og:title", content: "TALENTS LAB — L'Incubatore di Talenti Esports" },
-      { property: "og:description", content: "TALENTS LAB — L'incubatore di talenti competitivi del panorama e-sport italiano." },
+      {
+        property: "og:description",
+        content: "TALENTS LAB — L'incubatore di talenti competitivi del panorama e-sport italiano.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@TalentsLab" },
@@ -117,10 +130,17 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  // Il primo render usa sempre la lingua di default, così l'HTML del server e
+  // quello del client coincidono; qui, dopo il mount, subentra la preferenza
+  // salvata e `<html lang>` resta allineato.
+  useEffect(() => syncLanguageWithBrowser(i18n), []);
+
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <I18nextProvider i18n={i18n}>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </I18nextProvider>
     </QueryClientProvider>
   );
 }

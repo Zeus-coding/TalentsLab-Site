@@ -45,12 +45,30 @@
     "visionText": "TALENTS LAB no es un simple equipo. Es una marca, una community, un movimiento. Queremos crear un espacio donde el talento se reúna, se entrene, compita y gane. Una plataforma donde los jugadores puedan convertirse en campeones, los creadores puedan construir audiencias globales y los fans puedan vivir la emoción del gaming competitivo en el más alto nivel.",
     "valuesTitle": "Nuestros Valores",
     "values": [
-      { "title": "Excelencia", "description": "No aceptamos compromisos. Cada detalle, cada decisión, cada acción refleja nuestro compromiso con la excelencia absoluta." },
-      { "title": "Dedicación", "description": "Nuestros jugadores se entrenan como los mejores atletas del mundo. Dedicación total a la competición." },
-      { "title": "Community", "description": "No estamos solos. Nuestra fuerza viene de la community. Ya sean jugadores, fans o partners, somos una familia." },
-      { "title": "Innovación", "description": "Buscamos constantemente nuevos métodos de entrenamiento, nuevas estrategias y nuevas formas de contar el gaming." },
-      { "title": "Transparencia", "description": "Comunicamos honestamente con nuestros fans, partners y la community. Sin hype vacío, solo hechos." },
-      { "title": "Ambición", "description": "Soñamos en grande. De un equipo local a un protagonista del panorama internacional." }
+      {
+        "title": "Excelencia",
+        "description": "No aceptamos compromisos. Cada detalle, cada decisión, cada acción refleja nuestro compromiso con la excelencia absoluta."
+      },
+      {
+        "title": "Dedicación",
+        "description": "Nuestros jugadores se entrenan como los mejores atletas del mundo. Dedicación total a la competición."
+      },
+      {
+        "title": "Community",
+        "description": "No estamos solos. Nuestra fuerza viene de la community. Ya sean jugadores, fans o partners, somos una familia."
+      },
+      {
+        "title": "Innovación",
+        "description": "Buscamos constantemente nuevos métodos de entrenamiento, nuevas estrategias y nuevas formas de contar el gaming."
+      },
+      {
+        "title": "Transparencia",
+        "description": "Comunicamos honestamente con nuestros fans, partners y la community. Sin hype vacío, solo hechos."
+      },
+      {
+        "title": "Ambición",
+        "description": "Soñamos en grande. De un equipo local a un protagonista del panorama internacional."
+      }
     ],
     "storyTitle": "Nuestra",
     "storyTitleAccent": "Historia",
@@ -138,10 +156,22 @@
     "opportunitiesLabel": "Oportunidades",
     "opportunitiesTitle": "Por qué asociarte con",
     "benefits": [
-      { "title": "Visibilidad Garantizada", "description": "Exposición de marca en todos los canales de TALENTS LAB: redes, streams, web y dentro del juego." },
-      { "title": "Community Comprometida", "description": "Acceso a una community de gamers apasionados y leales, muy receptiva al valor." },
-      { "title": "Partnership Creativa", "description": "Colaboraciones a medida: contenido, sorteos, campañas dirigidas. Máxima flexibilidad." },
-      { "title": "Datos y Analytics", "description": "Informes detallados sobre impresiones, engagement, reach y ROI de la partnership." }
+      {
+        "title": "Visibilidad Garantizada",
+        "description": "Exposición de marca en todos los canales de TALENTS LAB: redes, streams, web y dentro del juego."
+      },
+      {
+        "title": "Community Comprometida",
+        "description": "Acceso a una community de gamers apasionados y leales, muy receptiva al valor."
+      },
+      {
+        "title": "Partnership Creativa",
+        "description": "Colaboraciones a medida: contenido, sorteos, campañas dirigidas. Máxima flexibilidad."
+      },
+      {
+        "title": "Datos y Analytics",
+        "description": "Informes detallados sobre impresiones, engagement, reach y ROI de la partnership."
+      }
     ],
     "ctaLabel": "¿Listo para hacer historia?",
     "ctaTitle": "Conviértete en Partner",
@@ -153,10 +183,7 @@
     "heroBadge": "Colección 2026 — Próximamente",
     "heroTitleAccent": "Merch",
     "heroDescription": "El merchandising oficial de TALENTS LAB está llegando. Lleva los colores de la nueva era del gaming italiano. Piezas exclusivas, edición limitada y firmadas por nuestros campeones.",
-    "previewCards": [
-      { "name": "Camiseta Oficial (Jersey)" },
-      { "name": "Finger Sleeves" }
-    ],
+    "previewCards": [{ "name": "Camiseta Oficial (Jersey)" }, { "name": "Finger Sleeves" }],
     "previewCardBadge": "Próximamente",
     "ctaTitle": "Mantente",
     "ctaTitleAccent": "Actualizado",
@@ -164,8 +191,14 @@
     "emailPlaceholder": "tu@email.com",
     "notifyButton": "Notifícame",
     "infoCards": [
-      { "title": "Merchandising Oficial", "desc": "Producto oficial de TALENTS LAB. Calidad premium, diseño exclusivo, firmado por nuestros campeones." },
-      { "title": "Edición Limitada", "desc": "Cada colección es limitada. Una vez agotada, nunca más estará disponible. Forma parte de quienes eligen TALENTS LAB." }
+      {
+        "title": "Merchandising Oficial",
+        "desc": "Producto oficial de TALENTS LAB. Calidad premium, diseño exclusivo, firmado por nuestros campeones."
+      },
+      {
+        "title": "Edición Limitada",
+        "desc": "Cada colección es limitada. Una vez agotada, nunca más estará disponible. Forma parte de quienes eligen TALENTS LAB."
+      }
     ]
   },
   "teamsPage": {
