@@ -13,7 +13,13 @@ export function Footer() {
     <footer className="border-t border-border bg-card/30 mt-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 grid md:grid-cols-4 gap-10">
         <div className="md:col-span-1">
-          <img src="/logo.png" alt="TALENTS LAB" className="h-16 w-auto mb-4" />
+          <img
+            src="/logo.png"
+            alt="TALENTS LAB"
+            loading="lazy"
+            decoding="async"
+            className="h-16 w-auto mb-4"
+          />
           <p className="text-sm text-muted-foreground">{t("footer.description")}</p>
         </div>
         <div className="md:col-span-2">

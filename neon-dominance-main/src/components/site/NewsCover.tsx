@@ -25,6 +25,8 @@ export function NewsCover({
           src={src}
           alt={alt}
           onError={() => setImgOk(false)}
+          loading="lazy"
+          decoding="async"
           className={`w-full h-full object-cover ${imgClassName}`}
         />
       ) : (

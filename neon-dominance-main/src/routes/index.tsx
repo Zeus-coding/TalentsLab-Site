@@ -22,6 +22,25 @@ export const Route = createFileRoute("/")({
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap",
       },
+      // PRELOAD DELL'IMMAGINE LCP DELLA HOME.
+      // Le due `media` devono rispecchiare esattamente il breakpoint del
+      // <picture> nella hero: senza di esse il browser scaricherebbe TUTTE
+      // E DUE le immagini (circa 2 MB ciascuna), peggiorando proprio la
+      // metrica che stiamo cercando di migliorare.
+      {
+        rel: "preload",
+        as: "image",
+        href: "/hero-mobile.png",
+        media: "(max-width: 767px)",
+        fetchPriority: "high",
+      },
+      {
+        rel: "preload",
+        as: "image",
+        href: "/team-hero.png",
+        media: "(min-width: 768px)",
+        fetchPriority: "high",
+      },
     ],
   }),
   component: Home,
@@ -66,6 +85,8 @@ function RosterCard({
           src={img}
           alt=""
           onError={() => setImgOk(false)}
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
         />
       ) : (
@@ -129,10 +150,14 @@ function Home() {
                 <source media="(min-width: 768px)" srcSet="/team-hero.png" />
 
                 {/* Se lo schermo è piccolo (telefono), usa la foto verticale */}
+                {/* Immagine LCP: mai loading="lazy" qui, rinvierebbe proprio
+                    il caricamento che stiamo anticipando col preload. */}
                 <img
                   src="/hero-mobile.png"
                   alt="TALENTS LAB - Team ufficiale"
                   onError={() => setHeroImgOk(false)}
+                  fetchPriority="high"
+                  decoding="async"
                   className="w-full h-auto min-h-[550px] md:h-[85vh] lg:h-[90vh] object-cover object-top"
                 />
               </picture>

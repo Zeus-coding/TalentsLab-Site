@@ -13,7 +13,7 @@ import { I18nextProvider } from "react-i18next";
 import appCss from "../styles.css?url";
 import { initI18n, syncLanguageWithBrowser } from "../lib/i18n";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { SITE_NAME, socialMeta } from "../lib/seo";
+import { KEYWORDS, LOGO_PATH, organizationJsonLd, SITE_NAME, socialMeta } from "../lib/seo";
 
 // Istanza creata a livello di modulo e passata a <I18nextProvider>. Il
 // riferimento esplicito è ciò che la tiene dentro il bundle: con un semplice
@@ -87,6 +87,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "author", content: SITE_NAME },
+      { name: "keywords", content: KEYWORDS },
       // Default per tutto il sito: le singole rotte sovrascrivono title e
       // description richiamando socialMeta() con i propri valori.
       ...socialMeta(),
@@ -95,6 +96,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      // Icona nelle schede del browser e sulla home screen iOS.
+      { rel: "icon", type: "image/png", href: LOGO_PATH },
+      { rel: "apple-touch-icon", href: LOGO_PATH },
+      // Il logo è nella navbar di OGNI pagina, sopra la piega: va scaricato
+      // subito, senza attendere che il parser arrivi al markup. Pesa 29 KB,
+      // quindi anticiparlo non ruba banda alle immagini grandi.
+      { rel: "preload", as: "image", href: LOGO_PATH, fetchPriority: "high" },
+    ],
+    scripts: [
+      // Gli attributi vanno piatti, come per meta e links: annidarli sotto
+      // `attrs` li fa finire nell'HTML come attributo letterale.
+      {
+        type: "application/ld+json",
+        children: organizationJsonLd(),
       },
     ],
   }),
