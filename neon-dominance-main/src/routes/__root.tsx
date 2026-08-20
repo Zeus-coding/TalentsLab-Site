@@ -13,7 +13,14 @@ import { I18nextProvider } from "react-i18next";
 import appCss from "../styles.css?url";
 import { initI18n, syncLanguageWithBrowser } from "../lib/i18n";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { KEYWORDS, LOGO_PATH, organizationJsonLd, SITE_NAME, socialMeta } from "../lib/seo";
+import {
+  FAVICON_PATH,
+  KEYWORDS,
+  LOGO_PATH,
+  organizationJsonLd,
+  SITE_NAME,
+  socialMeta,
+} from "../lib/seo";
 
 // Istanza creata a livello di modulo e passata a <I18nextProvider>. Il
 // riferimento esplicito è ciò che la tiene dentro il bundle: con un semplice
@@ -98,8 +105,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       // Icona nelle schede del browser e sulla home screen iOS.
-      { rel: "icon", type: "image/png", href: LOGO_PATH },
-      { rel: "apple-touch-icon", href: LOGO_PATH },
+      { rel: "icon", type: "image/png", sizes: "any", href: FAVICON_PATH },
+      { rel: "apple-touch-icon", href: FAVICON_PATH },
       // Il logo è nella navbar di OGNI pagina, sopra la piega: va scaricato
       // subito, senza attendere che il parser arrivi al markup. Pesa 29 KB,
       // quindi anticiparlo non ruba banda alle immagini grandi.

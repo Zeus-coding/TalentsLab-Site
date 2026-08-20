@@ -1,6 +1,9 @@
-// Dominio canonico. Serve a costruire URL assoluti: WhatsApp, X e LinkedIn
-// scartano og:image con path relativi, quindi non basta "/logo.png".
-export const SITE_URL = "https://talentslab.gg";
+// Dominio canonico, CON il "www": l'apex talentslab.gg risponde 308 e
+// reindirizza qui. WhatsApp non segue i redirect quando scarica og:image,
+// quindi usare l'apex faceva fallire il download e la card restava senza
+// immagine. Serve anche per gli URL assoluti: i path relativi vengono
+// scartati da WhatsApp, X e LinkedIn.
+export const SITE_URL = "https://www.talentslab.gg";
 export const SITE_NAME = "TALENTS LAB";
 
 // Inglese come lingua predefinita del server (vedi DEFAULT_LANGUAGE in
@@ -16,21 +19,27 @@ export const DEFAULT_DESCRIPTION =
 export const KEYWORDS =
   "talents lab, brawl stars, brawl stars esports, bsc emea, esports team, talentslab.gg, yei yei, agachi";
 
-// Anteprima social. logo.png (594x420, 29 KB) sta sotto la soglia oltre la
-// quale WhatsApp rinuncia a scaricare l'immagine — team-hero.png pesa 2 MB e
-// verrebbe spesso ignorato. Per una card a larghezza piena esporta un
-// 1200x630 in public/ e aggiorna solo queste tre costanti (poi passa
-// twitter:card a "summary_large_image" qui sotto).
-const OG_IMAGE_PATH = "/logo.png";
-const OG_IMAGE_WIDTH = "594";
-const OG_IMAGE_HEIGHT = "420";
+// Anteprima social: 1200x630 con FONDO OPACO, non trasparente.
+// logo.png è un logo bianco su trasparenza, e WhatsApp compone i PNG
+// trasparenti su bianco: il risultato era bianco su bianco, cioè una card
+// senza immagine. og-image.png ha lo stesso simbolo su fondo near-black.
+const OG_IMAGE_PATH = "/og-image.png";
+const OG_IMAGE_WIDTH = "1200";
+const OG_IMAGE_HEIGHT = "630";
 
 export function absoluteUrl(path: string): string {
   return new URL(path, SITE_URL).href;
 }
 
-/** Logo del sito, usato come favicon e come `logo` nei dati strutturati. */
+/** Logo del sito, usato come `logo` nei dati strutturati e per l'anteprima social. */
 export const LOGO_PATH = "/logo.png";
+
+// Icona delle schede del browser: quadrata E con fondo opaco.
+// favicon.png (1680x1680) è il logo bianco su trasparenza: nelle tab in tema
+// chiaro, che sono bianche, risulterebbe invisibile. icon.png è lo stesso
+// simbolo ritagliato ai bordi reali su fondo near-black, quindi leggibile sia
+// in tema chiaro sia in tema scuro.
+export const FAVICON_PATH = "/icon.png";
 
 // Profili ufficiali in forma canonica, senza parametri di tracciamento: i
 // dati strutturati vogliono URL di identità stabili, diversi dai link della
@@ -63,7 +72,9 @@ export function organizationSchema() {
     name: SITE_NAME,
     alternateName: "TLB",
     url: SITE_URL,
-    logo: absoluteUrl(LOGO_PATH),
+    // Versione opaca e quadrata: logo.png è bianco su trasparenza e nei
+    // pannelli chiari di Google non si distinguerebbe.
+    logo: absoluteUrl(FAVICON_PATH),
     description: DEFAULT_DESCRIPTION,
     sport: "Esports",
     sameAs: ORGANIZATION_SAME_AS,
@@ -104,7 +115,8 @@ export function socialMeta({
     { property: "og:image:width", content: OG_IMAGE_WIDTH },
     { property: "og:image:height", content: OG_IMAGE_HEIGHT },
     { property: "og:image:alt", content: `${SITE_NAME} — esports talent incubator` },
-    { name: "twitter:card", content: "summary" },
+    // L'immagine è 1200x630, il formato per cui è pensata la card grande.
+    { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:site", content: "@TalentsLab" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
