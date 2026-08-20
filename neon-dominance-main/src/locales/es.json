@@ -149,9 +149,18 @@
     "heroTitleAccent": "juntos",
     "heroDescription": "TALENTS LAB es más que un equipo. Somos una community, una marca, una visión del gaming competitivo. Si compartes esta pasión, queremos hacer historia juntos.",
     "metrics": [
-      { "value": "10M+", "label": "Visualizaciones" },
-      { "value": "192k+", "label": "Me gusta" },
-      { "value": "1M+", "label": "Cuentas Alcanzadas" }
+      {
+        "value": "10M+",
+        "label": "Visualizaciones"
+      },
+      {
+        "value": "192k+",
+        "label": "Me gusta"
+      },
+      {
+        "value": "1M+",
+        "label": "Cuentas Alcanzadas"
+      }
     ],
     "opportunitiesLabel": "Oportunidades",
     "opportunitiesTitle": "Por qué asociarte con",
@@ -183,7 +192,14 @@
     "heroBadge": "Colección 2026 — Próximamente",
     "heroTitleAccent": "Merch",
     "heroDescription": "El merchandising oficial de TALENTS LAB está llegando. Lleva los colores de la nueva era del gaming italiano. Piezas exclusivas, edición limitada y firmadas por nuestros campeones.",
-    "previewCards": [{ "name": "Camiseta Oficial (Jersey)" }, { "name": "Finger Sleeves" }],
+    "previewCards": [
+      {
+        "name": "Camiseta Oficial (Jersey)"
+      },
+      {
+        "name": "Finger Sleeves"
+      }
+    ],
     "previewCardBadge": "Próximamente",
     "ctaTitle": "Mantente",
     "ctaTitleAccent": "Actualizado",
@@ -213,9 +229,17 @@
       "title": "BRAWL STARS 2026",
       "playerLabel": "PLAYER",
       "players": {
-        "yeiyei": { "name": "Yei Yei" },
-        "tomzy": { "name": "Tomzy" },
-        "agachi": { "name": "Agachi" }
+        "yeiyei": {
+          "name": "Yei Yei"
+        },
+        "agachi": {
+          "name": "Agachi"
+        }
+      },
+      "reveal": {
+        "name": "Anuncio Muy Pronto",
+        "role": "POR ANUNCIAR",
+        "socialsSoon": "Redes muy pronto"
       }
     },
     "academyTeam": {
@@ -223,10 +247,18 @@
       "title": "ACADEMY TEAM",
       "description": "Nuestros jóvenes talentos se preparan para la escena competitiva europea mediante entrenamientos estructurados, competiciones regulares y mentoría de pro players.",
       "players": {
-        "flow": { "name": "Flow" },
-        "spocki": { "name": "Spocki" },
-        "movess": { "name": "Movess" },
-        "moude": { "name": "Moude" }
+        "flow": {
+          "name": "Flow"
+        },
+        "spocki": {
+          "name": "Spocki"
+        },
+        "movess": {
+          "name": "Movess"
+        },
+        "moude": {
+          "name": "Moude"
+        }
       },
       "roles": {
         "player": "PLAYER",

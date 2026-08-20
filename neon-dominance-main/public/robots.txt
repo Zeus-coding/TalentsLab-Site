@@ -1,0 +1,10 @@
+# TALENTS LAB — https://talentslab.gg
+# Servito come file statico: i file in public/ finiscono in
+# .vercel/output/static e vengono risolti dal filesystem handler
+# prima della function SSR.
+
+User-agent: *
+Allow: /
+
+# La direttiva Sitemap richiede l'URL del file, non quello del sito.
+Sitemap: https://talentslab.gg/sitemap.xml

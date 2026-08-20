@@ -149,9 +149,18 @@
     "heroTitleAccent": "ensemble",
     "heroDescription": "TALENTS LAB est plus qu'une équipe. Nous sommes une community, une marque, une vision du gaming compétitif. Si vous partagez cette passion, nous voulons écrire l'histoire ensemble.",
     "metrics": [
-      { "value": "10M+", "label": "Vues" },
-      { "value": "192k+", "label": "J'aime" },
-      { "value": "1M+", "label": "Comptes atteints" }
+      {
+        "value": "10M+",
+        "label": "Vues"
+      },
+      {
+        "value": "192k+",
+        "label": "J'aime"
+      },
+      {
+        "value": "1M+",
+        "label": "Comptes atteints"
+      }
     ],
     "opportunitiesLabel": "Opportunités",
     "opportunitiesTitle": "Pourquoi devenir partenaire de",
@@ -183,7 +192,14 @@
     "heroBadge": "Collection 2026 — Bientôt disponible",
     "heroTitleAccent": "Merch",
     "heroDescription": "Le merchandising officiel de TALENTS LAB arrive. Porte les couleurs de la nouvelle ère du gaming italien. Pièces exclusives, édition limitée, signées par nos champions.",
-    "previewCards": [{ "name": "Maillot Officiel (Jersey)" }, { "name": "Finger Sleeves" }],
+    "previewCards": [
+      {
+        "name": "Maillot Officiel (Jersey)"
+      },
+      {
+        "name": "Finger Sleeves"
+      }
+    ],
     "previewCardBadge": "Bientôt disponible",
     "ctaTitle": "Restez",
     "ctaTitleAccent": "à jour",
@@ -213,9 +229,17 @@
       "title": "BRAWL STARS 2026",
       "playerLabel": "PLAYER",
       "players": {
-        "yeiyei": { "name": "Yei Yei" },
-        "tomzy": { "name": "Tomzy" },
-        "agachi": { "name": "Agachi" }
+        "yeiyei": {
+          "name": "Yei Yei"
+        },
+        "agachi": {
+          "name": "Agachi"
+        }
+      },
+      "reveal": {
+        "name": "Annonce à Venir",
+        "role": "À ANNONCER",
+        "socialsSoon": "Réseaux à venir"
       }
     },
     "academyTeam": {
@@ -223,10 +247,18 @@
       "title": "ACADEMY TEAM",
       "description": "Nos jeunes talents sont préparés pour la scène compétitive européenne grâce à un entraînement structuré, des compétitions régulières et un mentorat de pro players.",
       "players": {
-        "flow": { "name": "Flow" },
-        "spocki": { "name": "Spocki" },
-        "movess": { "name": "Movess" },
-        "moude": { "name": "Moude" }
+        "flow": {
+          "name": "Flow"
+        },
+        "spocki": {
+          "name": "Spocki"
+        },
+        "movess": {
+          "name": "Movess"
+        },
+        "moude": {
+          "name": "Moude"
+        }
       },
       "roles": {
         "player": "PLAYER",

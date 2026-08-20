@@ -13,6 +13,7 @@ import { I18nextProvider } from "react-i18next";
 import appCss from "../styles.css?url";
 import { initI18n, syncLanguageWithBrowser } from "../lib/i18n";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SITE_NAME, socialMeta } from "../lib/seo";
 
 // Istanza creata a livello di modulo e passata a <I18nextProvider>. Il
 // riferimento esplicito è ciò che la tiene dentro il bundle: con un semplice
@@ -85,20 +86,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "TALENTS LAB — L'Incubatore di Talenti Esports" },
-      {
-        name: "description",
-        content: "TALENTS LAB — L'incubatore di talenti competitivi del panorama e-sport italiano.",
-      },
-      { name: "author", content: "TALENTS LAB" },
-      { property: "og:title", content: "TALENTS LAB — L'Incubatore di Talenti Esports" },
-      {
-        property: "og:description",
-        content: "TALENTS LAB — L'incubatore di talenti competitivi del panorama e-sport italiano.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@TalentsLab" },
+      { name: "author", content: SITE_NAME },
+      // Default per tutto il sito: le singole rotte sovrascrivono title e
+      // description richiamando socialMeta() con i propri valori.
+      ...socialMeta(),
     ],
     links: [
       {

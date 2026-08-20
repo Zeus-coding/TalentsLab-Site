@@ -149,9 +149,18 @@
     "heroTitleAccent": "together with us",
     "heroDescription": "TALENTS LAB is more than a team. We are a community, a brand, a vision of competitive gaming. If you share this passion, we want to make history together.",
     "metrics": [
-      { "value": "10M+", "label": "Views" },
-      { "value": "192k+", "label": "Likes" },
-      { "value": "1M+", "label": "Accounts Reached" }
+      {
+        "value": "10M+",
+        "label": "Views"
+      },
+      {
+        "value": "192k+",
+        "label": "Likes"
+      },
+      {
+        "value": "1M+",
+        "label": "Accounts Reached"
+      }
     ],
     "opportunitiesLabel": "Opportunities",
     "opportunitiesTitle": "Why partner with",
@@ -183,7 +192,14 @@
     "heroBadge": "Collection 2026 — Coming Soon",
     "heroTitleAccent": "Merch",
     "heroDescription": "The official TALENTS LAB merchandise is on its way. Wear the colors of the new era of Italian gaming. Exclusive, limited edition pieces signed by our champions.",
-    "previewCards": [{ "name": "Official Jersey" }, { "name": "Finger Sleeves" }],
+    "previewCards": [
+      {
+        "name": "Official Jersey"
+      },
+      {
+        "name": "Finger Sleeves"
+      }
+    ],
     "previewCardBadge": "Coming Soon",
     "ctaTitle": "Stay",
     "ctaTitleAccent": "Updated",
@@ -213,9 +229,17 @@
       "title": "BRAWL STARS 2026",
       "playerLabel": "PLAYER",
       "players": {
-        "yeiyei": { "name": "Yei Yei" },
-        "tomzy": { "name": "Tomzy" },
-        "agachi": { "name": "Agachi" }
+        "yeiyei": {
+          "name": "Yei Yei"
+        },
+        "agachi": {
+          "name": "Agachi"
+        }
+      },
+      "reveal": {
+        "name": "Reveal Coming Soon",
+        "role": "TO BE ANNOUNCED",
+        "socialsSoon": "Socials coming soon"
       }
     },
     "academyTeam": {
@@ -223,10 +247,18 @@
       "title": "ACADEMY TEAM",
       "description": "Our young talents are prepared for the European competitive stage through structured training, regular competitions, and mentorship from pro players.",
       "players": {
-        "flow": { "name": "Flow" },
-        "spocki": { "name": "Spocki" },
-        "movess": { "name": "Movess" },
-        "moude": { "name": "Moude" }
+        "flow": {
+          "name": "Flow"
+        },
+        "spocki": {
+          "name": "Spocki"
+        },
+        "movess": {
+          "name": "Movess"
+        },
+        "moude": {
+          "name": "Moude"
+        }
       },
       "roles": {
         "player": "PLAYER",

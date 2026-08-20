@@ -1,20 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, type ReactElement } from "react";
 import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LogoWatermark } from "@/components/site/LogoWatermark";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
+import { socialMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/teams/")({
   head: () => ({
-    meta: [
-      { title: "Teams — TALENTS LAB" },
-      {
-        name: "description",
-        content: "I roster competitivi di TALENTS LAB. Team principale e Academy di Brawl Stars.",
-      },
-    ],
+    meta: socialMeta({
+      title: "Teams — TALENTS LAB",
+      description:
+        "The competitive rosters of TALENTS LAB: the main Brawl Stars team and the Academy squad.",
+      path: "/teams",
+    }),
   }),
   component: TeamsPage,
 });
@@ -54,87 +54,119 @@ function UserSilhouette({ className = "" }: { className?: string }) {
   );
 }
 
+// --- Segnaposto della card teaser ---------------------------------------------
+// Sagoma anonima con punto interrogativo al centro della testa. Il gradiente
+// cyberpunk arriva dalla card che lo contiene, la stessa delle altre schede.
+function RevealPlaceholder() {
+  return (
+    <div className="relative w-full h-full flex items-center justify-center">
+      <svg viewBox="0 0 24 24" className="w-32 h-32 sm:w-36 sm:h-36" aria-hidden="true">
+        <g fill="currentColor" className="text-primary/20">
+          <circle cx="12" cy="8.5" r="4.2" />
+          <path d="M3.5 21c0-4.5 3.8-7.5 8.5-7.5s8.5 3 8.5 7.5z" />
+        </g>
+        {/* Il "?" è dentro l'SVG per restare allineato alla testa a ogni
+            dimensione, invece di essere posizionato a occhio con un offset. */}
+        <text
+          x="12"
+          y="8.5"
+          textAnchor="middle"
+          dominantBaseline="central"
+          fontSize="6"
+          fontWeight="700"
+          fill="currentColor"
+          className="text-primary text-glow-red"
+        >
+          ?
+        </text>
+      </svg>
+    </div>
+  );
+}
+
 type Social = "youtube" | "kick" | "tiktok";
 
-const MAIN_TEAM: {
-  id: string;
-  img: string;
-  flag: string;
-  socials: Social[];
-}[] = [
-  { id: "yeiyei", img: "/yeiyei.png", flag: "🇷🇴", socials: ["youtube"] },
-  // ── CAMBIO FORMAZIONE: Tomzy sostituisce Stas ──────────────────────────────
-  // Social: SOLO TikTok (rimossi YouTube e Kick che appartenevano a Stas).
-  // FOTO DA INSERIRE: crea la cartella "public/images/roster/" nella root del
-  // progetto (c:\Users\paolo\Desktop\neon-dominance-main\neon-dominance-main\public\images\roster\)
-  // e incolla lì la foto del giocatore rinominandola ESATTAMENTE "tomzy.png".
-  // Percorso finale atteso dal codice: public/images/roster/tomzy.png
-  { id: "tomzy", img: "/tomzy.png", flag: "🇬🇧", socials: ["tiktok"] },
-  { id: "agachi", img: "/agachi.png", flag: "🇷🇴", socials: ["kick"] },
+const SOCIAL_ICONS: Record<Social, ({ size }: { size?: number }) => ReactElement> = {
+  youtube: YouTubeIcon,
+  kick: KickIcon,
+  tiktok: TikTokIcon,
+};
+
+const SOCIAL_LABELS: Record<Social, string> = {
+  youtube: "YouTube",
+  kick: "Kick",
+  tiktok: "TikTok",
+};
+
+type MainTeamCard =
+  | {
+      kind: "player";
+      id: string;
+      img: string;
+      flag: string;
+      /** URL per rete: vengono mostrate solo le voci presenti qui. */
+      socials: Partial<Record<Social, string>>;
+    }
+  // Posto libero nel roster: annunciato come teaser invece di mostrare una
+  // formazione incompleta. Non ha foto, bandiera né social.
+  | { kind: "reveal"; id: string };
+
+const MAIN_TEAM: MainTeamCard[] = [
+  {
+    kind: "player",
+    id: "yeiyei",
+    img: "/yeiyei.png",
+    flag: "🇷🇴",
+    socials: { youtube: "https://youtube.com/@yeiyeibs?si=rRpC3e7b4JkytwpA" },
+  },
+  {
+    kind: "player",
+    id: "agachi",
+    img: "/agachi.png",
+    flag: "🇷🇴",
+    socials: { kick: "https://kick.com/agachi6969" },
+  },
+  { kind: "reveal", id: "reveal" },
 ];
 
-const ACADEMY_TEAM: { id: string; roleKey: string; flag: string }[] = [
-  { id: "flow", roleKey: "player", flag: "🇮🇹" },
-  { id: "spocki", roleKey: "player", flag: "🇮🇹" },
-  { id: "movess", roleKey: "player", flag: "🇮🇹" },
-  { id: "moude", roleKey: "drafter", flag: "🇮🇹" },
+// L'Academy non mostra le nazionalità: solo nome e ruolo.
+const ACADEMY_TEAM: { id: string; roleKey: string }[] = [
+  { id: "flow", roleKey: "player" },
+  { id: "spocki", roleKey: "player" },
+  { id: "movess", roleKey: "player" },
+  { id: "moude", roleKey: "drafter" },
 ];
 
-function SocialLinks({ socials, playerName }: { socials: Social[]; playerName: string }) {
-  const hrefsByPlayer: Record<string, Partial<Record<Social, string>>> = {
-    Tomzy: {
-      tiktok: "https://www.tiktok.com/@tomzybs?is_from_webapp=1&sender_device=pc",
-    },
-    "Yei Yei": {
-      youtube: "https://youtube.com/@yeiyeibs?si=rRpC3e7b4JkytwpA",
-    },
-    Agachi: {
-      kick: "https://kick.com/agachi6969",
-    },
-  };
+// Gli URL stanno nella stessa struttura dell'elenco delle reti, così non è
+// possibile dichiarare un social senza link: prima le due informazioni erano
+// separate e indicizzate per NOME TRADOTTO del giocatore, quindi una lingua
+// che avesse tradotto il nome produceva un <a href={undefined}>.
+function SocialLinks({ socials }: { socials: Partial<Record<Social, string>> }) {
+  const links = (Object.keys(SOCIAL_ICONS) as Social[])
+    .map((network) => ({ network, href: socials[network] }))
+    .filter((link): link is { network: Social; href: string } => Boolean(link.href));
 
-  // Default (viene sovrascritto per Tomzy/Yei Yei/Agachi sotto)
-  const hrefs = {
-    youtube: hrefsByPlayer[playerName]?.youtube,
-    kick: hrefsByPlayer[playerName]?.kick,
-    tiktok: hrefsByPlayer[playerName]?.tiktok,
-  };
+  if (links.length === 0) {
+    return null;
+  }
 
   return (
     <div className="flex items-center gap-3 mt-3 text-muted-foreground">
-      {socials.includes("youtube") && (
-        <a
-          href={hrefs.youtube}
-          aria-label="YouTube"
-          className="hover:text-primary transition"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <YouTubeIcon />
-        </a>
-      )}
-      {socials.includes("kick") && (
-        <a
-          href={hrefs.kick}
-          aria-label="Kick"
-          className="hover:text-primary transition"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <KickIcon />
-        </a>
-      )}
-      {socials.includes("tiktok") && (
-        <a
-          href={hrefs.tiktok}
-          aria-label="TikTok"
-          className="hover:text-primary transition"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <TikTokIcon />
-        </a>
-      )}
+      {links.map(({ network, href }) => {
+        const Icon = SOCIAL_ICONS[network];
+        return (
+          <a
+            key={network}
+            href={href}
+            aria-label={SOCIAL_LABELS[network]}
+            className="hover:text-primary transition"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Icon />
+          </a>
+        );
+      })}
     </div>
   );
 }
@@ -204,24 +236,46 @@ function TeamsPage() {
           </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {MAIN_TEAM.map((player, index) => (
-              <ScrollReveal key={player.id} delay={index * 0.1} className="group relative">
+            {MAIN_TEAM.map((card, index) => (
+              <ScrollReveal key={card.id} delay={index * 0.1} className="group relative">
+                {/* Stesso contenitore per entrambi i tipi di card: l'aspect
+                    ratio fisso mantiene la griglia simmetrica anche con il
+                    segnaposto al posto della foto. */}
                 <div className="relative w-full aspect-[3/4] bg-gradient-to-br from-primary/20 to-background border border-border/50 overflow-hidden flex items-center justify-center mb-4">
-                  <PlayerPhoto src={player.img} flag={player.flag} />
+                  {card.kind === "player" ? (
+                    <PlayerPhoto src={card.img} flag={card.flag} />
+                  ) : (
+                    <RevealPlaceholder />
+                  )}
                 </div>
-                <div className="flex items-center gap-2">
+                {/* min-h-14 = due righe di text-xl: "Reveal Coming Soon" va a
+                    capo mentre "Agachi" no, e senza altezza riservata ruolo e
+                    social della terza card si disallineerebbero dagli altri.
+                    Vale in tutte le lingue, incluse quelle con nomi più lunghi. */}
+                <div className="flex items-start gap-2 min-h-14">
                   <h3 className="font-display font-bold text-xl uppercase">
-                    {t(`teamsPage.mainTeam.players.${player.id}.name`)}
+                    {card.kind === "player"
+                      ? t(`teamsPage.mainTeam.players.${card.id}.name`)
+                      : t("teamsPage.mainTeam.reveal.name")}
                   </h3>
-                  <span className="text-lg leading-none">{player.flag}</span>
+                  <span className="text-lg leading-none">
+                    {card.kind === "player" ? card.flag : "?"}
+                  </span>
                 </div>
                 <p className="text-xs text-primary uppercase tracking-wider font-semibold mt-1">
-                  {t("teamsPage.mainTeam.playerLabel")}
+                  {card.kind === "player"
+                    ? t("teamsPage.mainTeam.playerLabel")
+                    : t("teamsPage.mainTeam.reveal.role")}
                 </p>
-                <SocialLinks
-                  socials={player.socials}
-                  playerName={t(`teamsPage.mainTeam.players.${player.id}.name`)}
-                />
+                {card.kind === "player" ? (
+                  <SocialLinks socials={card.socials} />
+                ) : (
+                  // Nessun link social per la card teaser: solo l'indicazione
+                  // testuale, che occupa la stessa riga delle icone.
+                  <p className="flex items-center gap-3 mt-3 text-xs uppercase tracking-wider text-muted-foreground">
+                    {t("teamsPage.mainTeam.reveal.socialsSoon")}
+                  </p>
+                )}
               </ScrollReveal>
             ))}
           </div>
@@ -249,12 +303,10 @@ function TeamsPage() {
                 <div className="relative aspect-square bg-gradient-to-b from-neutral-900 to-black border border-border/50 overflow-hidden flex items-center justify-center mb-4 shadow-lg">
                   <UserSilhouette className="w-24 h-24 text-neutral-700" />
                 </div>
-                <div className="flex items-center gap-2">
-                  <h3 className="font-display font-bold text-lg uppercase">
-                    {t(`teamsPage.academyTeam.players.${member.id}.name`)}
-                  </h3>
-                  <span className="text-base leading-none">{member.flag}</span>
-                </div>
+                {/* Nessuna nazionalità nell'Academy: solo nome e ruolo. */}
+                <h3 className="font-display font-bold text-lg uppercase">
+                  {t(`teamsPage.academyTeam.players.${member.id}.name`)}
+                </h3>
                 <p className="text-xs text-primary uppercase tracking-wider font-semibold mt-1">
                   {t(`teamsPage.academyTeam.roles.${member.roleKey}`)}
                 </p>
@@ -289,7 +341,7 @@ function TeamsPage() {
             </a>
 
             <a
-              href="/chi-siamo"
+              href="/about"
               className="btn-outline-neon px-8 py-4 text-sm uppercase tracking-wider font-semibold"
             >
               {t("teamsPage.recruitment.secondaryButton")}

@@ -11,7 +11,7 @@ const NAV = [
   { key: "teams", to: "/teams" },
   { key: "news", to: "/news" },
   { key: "partner", to: "/partner" },
-  { key: "about", to: "/chi-siamo" },
+  { key: "about", to: "/about" },
 ];
 
 export function Navbar() {

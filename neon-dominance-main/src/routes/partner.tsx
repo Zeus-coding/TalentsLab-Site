@@ -4,16 +4,16 @@ import { ArrowRight, Users, TrendingUp, Heart } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LogoWatermark } from "@/components/site/LogoWatermark";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
+import { socialMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/partner")({
   head: () => ({
-    meta: [
-      { title: "Partner & Sponsorship — TALENTS LAB Esports" },
-      {
-        name: "description",
-        content: "Diventa partner di TALENTS LAB Esports e raggiungi la community gaming",
-      },
-    ],
+    meta: socialMeta({
+      title: "Partner & Sponsorship — TALENTS LAB Esports",
+      description:
+        "Partner with TALENTS LAB Esports and reach an engaged, fast-growing competitive gaming community.",
+      path: "/partner",
+    }),
   }),
   component: PartnerPage,
 });

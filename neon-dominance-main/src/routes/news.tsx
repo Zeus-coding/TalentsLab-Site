@@ -7,13 +7,15 @@ import { LogoWatermark } from "@/components/site/LogoWatermark";
 import { NewsCover } from "@/components/site/NewsCover";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
 import { NEWS_ARTICLES, type NewsArticle } from "@/lib/news";
+import { socialMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/news")({
   head: () => ({
-    meta: [
-      { title: "News — TALENTS LAB Esports" },
-      { name: "description", content: "Ultimi aggiornamenti dal team TALENTS LAB" },
-    ],
+    meta: socialMeta({
+      title: "News — TALENTS LAB Esports",
+      description: "The latest updates, results and announcements from the TALENTS LAB roster.",
+      path: "/news",
+    }),
   }),
   component: NewsPage,
 });

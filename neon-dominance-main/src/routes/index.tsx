@@ -6,23 +6,15 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { NewsCover } from "@/components/site/NewsCover";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
 import { getLatestNews } from "@/lib/news";
+import { socialMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title: "TALENTS LAB — L'Incubatore di Talenti Esports" },
-      {
-        name: "description",
-        content:
-          "TALENTS LAB — L'incubatore di talenti competitivi nel panorama e-sport italiano. Rosters, news e partnership.",
-      },
-      { property: "og:title", content: "TALENTS LAB — L'Incubatore di Talenti Esports" },
-      {
-        property: "og:description",
-        content: "TALENTS LAB: incubatore di talenti competitivi italiani.",
-      },
-      { property: "og:type", content: "website" },
-    ],
+    meta: socialMeta({
+      description:
+        "TALENTS LAB is a forward-thinking global esports organization. Discover our rosters, the latest news and partnership opportunities.",
+      path: "/",
+    }),
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
@@ -177,7 +169,7 @@ function Home() {
                   {t("hero.rosters")} <ArrowRight size={16} />
                 </a>
                 <Link
-                  to="/chi-siamo"
+                  to="/about"
                   className="btn-outline-neon px-8 py-4 text-sm uppercase tracking-wider font-semibold"
                 >
                   {t("hero.about")}

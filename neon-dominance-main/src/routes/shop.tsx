@@ -5,16 +5,15 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { LogoWatermark } from "@/components/site/LogoWatermark";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
 import { useNewsletterForm } from "@/hooks/use-newsletter-form";
+import { socialMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
-    meta: [
-      { title: "Shop — TALENTS LAB Esports" },
-      {
-        name: "description",
-        content: "TALENTS LAB Official Merchandise — Collection 2026",
-      },
-    ],
+    meta: socialMeta({
+      title: "Shop — TALENTS LAB Esports",
+      description: "TALENTS LAB official merchandise — Collection 2026. Jerseys and team gear.",
+      path: "/shop",
+    }),
   }),
   component: ShopPage,
 });
@@ -54,7 +53,7 @@ function ShopPage() {
           dello schermo (w-[200%]) e centrata, quindi sporge di ~195px per lato
           su un telefono. Senza questo, la pagina diventa scrollabile in
           orizzontale e tutto sembra "troppo largo" e tagliato.
-          Le altre pagine (chi-siamo, news, partner, teams) lo hanno già. */}
+          Le altre pagine (about, news, partner, teams) lo hanno già. */}
       <section className="relative flex items-center justify-center bg-background overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 from-background to-primary/5" />
