@@ -34,6 +34,9 @@ export function useNewsletterForm(source: "footer" | "shop") {
     if (status === "loading") return;
 
     const trimmedEmail = email.trim();
+    // Campo trappola anti-bot: invisibile alle persone, i bot lo compilano.
+    const trap = event.currentTarget.elements.namedItem("website");
+    const website = trap instanceof HTMLInputElement ? trap.value : "";
 
     if (!EMAIL_PATTERN.test(trimmedEmail)) {
       setStatus("error");
@@ -46,7 +49,7 @@ export function useNewsletterForm(source: "footer" | "shop") {
 
     try {
       const result = await subscribeToNewsletter({
-        data: { email: trimmedEmail, source },
+        data: { email: trimmedEmail, source, website },
       });
 
       switch (result.status) {

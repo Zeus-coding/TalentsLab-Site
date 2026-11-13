@@ -30,8 +30,9 @@ export type NewsArticle = {
 /*
   📁 COPERTINE DELLE NEWS
   Incolla le immagini nella cartella "public/news/" alla root del progetto
-  (c:\Users\paolo\Desktop\neon-dominance-main\neon-dominance-main\public\news\)
   rinominandole ESATTAMENTE come indicato qui sotto.
+  Formato consigliato: WebP (pesa circa il 90% in meno di un PNG; si converte
+  gratis con squoosh.app). Anche JPEG va bene.
   Finché un file non è presente, la card mostra automaticamente un placeholder
   con il logo (nessuna immagine rotta a schermo).
 */
@@ -63,8 +64,8 @@ const ARTICLE_SOURCES = [
   {
     id: "brawl-stars-roster",
     publishedAt: "2026-06-28",
-    // → public/news/roster.png (già presente)
-    image: "/news/roster.png",
+    // → public/news/roster.webp (già presente)
+    image: "/news/roster.webp",
   },
 ];
 

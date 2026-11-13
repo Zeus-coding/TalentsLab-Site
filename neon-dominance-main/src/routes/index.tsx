@@ -30,14 +30,14 @@ export const Route = createFileRoute("/")({
       {
         rel: "preload",
         as: "image",
-        href: "/hero-mobile.png",
+        href: "/hero-mobile.webp",
         media: "(max-width: 767px)",
         fetchPriority: "high",
       },
       {
         rel: "preload",
         as: "image",
-        href: "/team-hero.png",
+        href: "/team-hero.webp",
         media: "(min-width: 768px)",
         fetchPriority: "high",
       },
@@ -134,9 +134,8 @@ function Home() {
             FOTO UFFICIALE DEL TEAM
             📁 DOVE SALVARE IL FILE:
                Incolla la foto nella cartella "public/" alla root del progetto
-               (c:\Users\paolo\Desktop\neon-dominance-main\neon-dominance-main\public\)
-               rinominandola ESATTAMENTE: team-hero.png
-               → Percorso finale atteso dal codice: public/team-hero.png
+               rinominandola ESATTAMENTE: team-hero.webp
+               → Percorso finale atteso dal codice: public/team-hero.webp
             💡 Consiglio: immagine PANORAMICA/orizzontale ad alta risoluzione, con
                i piedi/base già sfumati verso il nero. Viene usata come banner a
                tutta larghezza (object-cover): riempie lo schermo tagliando lo
@@ -147,13 +146,13 @@ function Home() {
             {heroImgOk ? (
               <picture className="w-full h-full">
                 {/* Se lo schermo è da PC o iPad (minimo 768px di larghezza), usa la foto desktop */}
-                <source media="(min-width: 768px)" srcSet="/team-hero.png" />
+                <source media="(min-width: 768px)" srcSet="/team-hero.webp" />
 
                 {/* Se lo schermo è piccolo (telefono), usa la foto verticale */}
                 {/* Immagine LCP: mai loading="lazy" qui, rinvierebbe proprio
                     il caricamento che stiamo anticipando col preload. */}
                 <img
-                  src="/hero-mobile.png"
+                  src="/hero-mobile.webp"
                   alt="TALENTS LAB - Team ufficiale"
                   onError={() => setHeroImgOk(false)}
                   fetchPriority="high"
@@ -162,7 +161,7 @@ function Home() {
                 />
               </picture>
             ) : (
-              // Fallback mostrato finché la foto non è presente in public/team-hero.png
+              // Fallback mostrato finché la foto non è presente in public/team-hero.webp
               <div className="w-full min-h-[550px] md:h-[85vh] lg:h-[90vh] bg-gradient-to-b from-primary/10 via-background to-black flex items-center justify-center">
                 <img src="/logo.png" alt="TALENTS LAB" className="h-28 sm:h-44 w-auto opacity-30" />
               </div>
@@ -171,7 +170,7 @@ function Home() {
             {/* TESTO E PULSANTI — ancorati sul fondo scuro della foto.
                 MOBILE: il blocco è compattato (font più piccolo e margini
                 verticali ridotti) e spinto in basso con pb-2, così le scritte
-                si appoggiano sulla sfumatura nera di hero-mobile.png e lasciano
+                si appoggiano sulla sfumatura nera di hero-mobile.webp e lasciano
                 liberi i volti e le maglie bianche dei ragazzi.
                 DA md IN SU: dimensioni e spazi originali. */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] text-center z-10 pb-2 md:pb-6 px-4">
@@ -289,7 +288,7 @@ function Home() {
                 hash="roster-principale"
                 eyebrow={t("rosters.teamMain")}
                 title="Brawl Stars"
-                img="/brawl.png"
+                img="/brawl.webp"
               />
 
               <RosterCard

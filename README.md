@@ -4,6 +4,7 @@
 
 **Live:** [www.talentslab.gg](https://www.talentslab.gg) · **Hosting:** Vercel (serverless SSR) · **Status:** in production
 
+[![CI](https://github.com/Zeus-coding/TalentsLab-Site/actions/workflows/ci.yml/badge.svg)](https://github.com/Zeus-coding/TalentsLab-Site/actions/workflows/ci.yml)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
 ![TanStack Start](https://img.shields.io/badge/TanStack_Start-SSR-FF4154)
@@ -105,15 +106,20 @@ Footer / Shop form
   └─ useNewsletterForm(source)          shared hook: client-side checks, UI state machine
       └─ subscribeToNewsletter()        createServerFn — called like a normal async function,
           │                             executed only on the server (RPC over HTTP POST)
-          ├─ Zod validation             { email: string().email(), source: "footer" | "shop" }
+          ├─ Zod validation             { email: string().email(), source: "footer" | "shop",
+          │                               website: honeypot field, empty for humans }
           ├─ getServerConfig()          reads MAILERLITE_API_KEY from *.server.ts (never bundled
           │                             for the client)
-          └─ POST connect.mailerlite.com/api/subscribers
-                201 → "subscribed"   200 → "already"   422 → "invalid_email"
-                missing key → "not_configured"   other → "error"
+          └─ subscribe()                pure logic in newsletter.core.ts (unit-tested)
+              ├─ honeypot filled → fake "subscribed", nothing saved
+              └─ POST connect.mailerlite.com/api/subscribers
+                    201 → "subscribed"   200 → "already"   422 → "invalid_email"
+                    missing key → "not_configured"   other → "error"
 ```
 
 The result is a **discriminated union** (`NewsletterResult`) so the UI can show a precise, translated message for each outcome.
+
+**Spam protection:** both forms contain a hidden `website` input (off-screen, `tabIndex=-1`, `aria-hidden`), invisible to people and screen readers. Bots that fill every field get a normal "subscribed" answer, so they don't retry, but MailerLite is never called.
 
 ---
 
@@ -145,7 +151,8 @@ These are the non-obvious problems solved during development, documented in code
 - The old Italian URL `/chi-siamo` returns a **301** to `/about` to transfer ranking and avoid duplicate content.
 
 ### 4. Performance (Core Web Vitals)
-- The home hero uses `<picture>` with separate mobile/desktop images; the matching `<link rel="preload">` tags carry the **same `media` queries**, so the browser downloads only one ~2 MB image instead of both.
+- The home hero uses `<picture>` with separate mobile/desktop images; the matching `<link rel="preload">` tags carry the **same `media` queries**, so the browser downloads only one image instead of both.
+- All photos are **WebP** (quality 82, oversized originals scaled down): the `public/` images went from ~10 MB of PNG to ~0.5 MB, with no visible loss.
 - The LCP image uses `fetchPriority="high"` and is never lazy-loaded; everything below the fold uses `loading="lazy"` + `decoding="async"`.
 - The navbar logo (29 KB, on every page) is preloaded globally.
 - Google Fonts are loaded with `preconnect` and `display=swap`.
@@ -243,6 +250,8 @@ npm run dev               # http://localhost:8080
 | `npm run build` | Production build → `.vercel/output` (Nitro `vercel` preset) |
 | `npm run build:dev` | Build in development mode |
 | `npm run lint` | ESLint (TypeScript + React Hooks + Prettier rules) |
+| `npm run typecheck` | TypeScript check (`tsc --noEmit`) |
+| `npm test` | Unit tests (Vitest) |
 | `npm run format` | Prettier on the whole project |
 
 ---
@@ -277,18 +286,21 @@ npm run dev               # http://localhost:8080
 
 - TypeScript `strict` mode, path alias `@/* → src/*`.
 - ESLint 9 flat config: `typescript-eslint` recommended, `react-hooks`, `react-refresh`, Prettier integration; build output folders are ignored.
-- `npx tsc --noEmit` and `npm run lint` pass with **0 errors**.
+- `npm run typecheck` and `npm run lint` pass with **0 errors**.
+- **Unit tests** (Vitest, `src/**/*.test.ts`): SEO helpers (absolute URLs, JSON-LD escaping), news ordering, newsletter logic with MailerLite mocked (every response code, missing token, honeypot), and a check that every locale file has exactly the same keys as `en.json`.
+- **CI** (GitHub Actions, `.github/workflows/ci.yml`): on every push and pull request, typecheck + lint + tests + build on Node 22 and 24.
+- `.gitattributes` forces LF line endings, so Prettier/ESLint give the same result on Windows, macOS and Linux.
 - Extensive in-code documentation explaining *why* decisions were made (SEO quirks, hydration, serverless constraints).
 
 ---
 
 ## Known limitations & roadmap
 
-- **Images**: hero and gallery images are large PNGs (~1–2 MB). Next step: convert to AVIF/WebP with responsive `srcset`.
-- **Tests**: no automated tests yet. Planned: unit tests for `news.ts`/`seo.ts` and the newsletter server function (Vitest, MailerLite mocked), plus an E2E smoke test (Playwright).
+- **Images**: already WebP; next step is responsive `srcset` (several widths per image).
+- **Tests**: unit tests are in place; an E2E smoke test (Playwright) is the next step.
 - **i18n URLs**: languages are client-side only; localized URLs (`/it/...`) with `hreflang` would let search engines index each language.
 - **News**: content is in code + locale files; a headless CMS would let non-developers publish.
-- **Rate limiting** on the newsletter endpoint (e.g. Vercel firewall or an edge KV counter).
+- **Rate limiting** on the newsletter endpoint (e.g. Vercel firewall or an edge KV counter); the honeypot already stops simple bots.
 
 ---
 

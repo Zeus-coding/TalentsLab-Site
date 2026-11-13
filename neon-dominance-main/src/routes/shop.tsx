@@ -23,13 +23,12 @@ export const Route = createFileRoute("/shop")({
 // (chiavi shopPage.previewCards.0/1.name); le immagini sono percorsi locali.
 //
 // 📁 FOTO DA INSERIRE: crea la cartella "public/shop/" nella root del progetto
-//    (c:\Users\paolo\Desktop\neon-dominance-main\neon-dominance-main\public\shop\)
 //    e incolla lì le due foto rinominandole ESATTAMENTE come indicato:
-//      • Maglietta ufficiale (Jersey) → public/shop/jersey.png
-//      • Finger sleeves              → public/shop/finger-sleeves.png
+//      • Maglietta ufficiale (Jersey) → public/shop/jersey.webp
+//      • Finger sleeves              → public/shop/finger-sleeves.webp
 const PREVIEW_PRODUCTS = [
-  { nameKey: "shopPage.previewCards.0.name", image: "/shop/jersey.png" },
-  { nameKey: "shopPage.previewCards.1.name", image: "/shop/finger-sleeves.png" },
+  { nameKey: "shopPage.previewCards.0.name", image: "/shop/jersey.webp" },
+  { nameKey: "shopPage.previewCards.1.name", image: "/shop/finger-sleeves.webp" },
 ];
 
 function ShopPage() {
@@ -144,6 +143,15 @@ function ShopPage() {
                 onSubmit={handleSubscribe}
                 className="flex flex-col md:flex-row gap-3 w-full max-w-sm mx-auto"
               >
+                {/* Campo trappola anti-bot: nascosto alle persone e ai lettori di schermo, i bot lo compilano */}
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute -left-[9999px] h-px w-px opacity-0"
+                />
                 <input
                   type="email"
                   name="email"

@@ -1,0 +1,8 @@
+# a capo LF ovunque (anche su Windows): Prettier/ESLint non segnalano errori finti
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
+*.woff2 binary

@@ -52,11 +52,6 @@ const ORGANIZATION_SAME_AS = [
 ];
 
 /**
- * Dati strutturati schema.org che qualificano il sito come organizzazione
- * esports. `logo` deve puntare a un file immagine: con l'URL del sito Google
- * scarta la proprietà e il rich result non viene generato.
- */
-/**
  * Lo schema serializzato, pronto da mettere dentro un tag script. `<` viene
  * neutralizzato: una stringa che contenesse `</script>` chiuderebbe il tag in
  * anticipo, con il resto del JSON riversato nella pagina.
@@ -65,6 +60,11 @@ export function organizationJsonLd(): string {
   return JSON.stringify(organizationSchema()).replace(/</g, "\\u003c");
 }
 
+/**
+ * Dati strutturati schema.org che qualificano il sito come organizzazione
+ * esports. `logo` deve puntare a un file immagine: con l'URL del sito Google
+ * scarta la proprietà e il rich result non viene generato.
+ */
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",

@@ -30,6 +30,15 @@ export function Footer() {
           {/* NEWSLETTER — le email vengono salvate su MailerLite tramite la
               funzione server subscribeToNewsletter (token al sicuro sul server). */}
           <form onSubmit={handleSubscribe} className="flex gap-2">
+            {/* Campo trappola anti-bot: nascosto alle persone e ai lettori di schermo, i bot lo compilano */}
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute -left-[9999px] h-px w-px opacity-0"
+            />
             <input
               type="email"
               name="email"

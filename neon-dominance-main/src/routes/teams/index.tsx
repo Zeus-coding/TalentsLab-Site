@@ -115,14 +115,14 @@ const MAIN_TEAM: MainTeamCard[] = [
   {
     kind: "player",
     id: "yeiyei",
-    img: "/yeiyei.png",
+    img: "/yeiyei.webp",
     flag: "🇷🇴",
     socials: { youtube: "https://youtube.com/@yeiyeibs?si=rRpC3e7b4JkytwpA" },
   },
   {
     kind: "player",
     id: "agachi",
-    img: "/agachi.png",
+    img: "/agachi.webp",
     flag: "🇷🇴",
     socials: { kick: "https://kick.com/agachi6969" },
   },
